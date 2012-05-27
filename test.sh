@@ -4,9 +4,9 @@
 
 #~/development/grails-core/gradew install
 
-#export GRAILS_HOME=~/development/grails-core
+export GRAILS_HOME=~/development/grails-core
 
-#export PATH=$GRAILS_HOME/bin:$PATH
+export PATH=$GRAILS_HOME/bin:$PATH
 
 cd leakapp
 
