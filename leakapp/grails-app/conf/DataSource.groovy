@@ -26,18 +26,16 @@ environments {
     production {
         dataSource {
             dbCreate = "update"
-            url = "jdbc:h2:prodDb;MVCC=TRUE"
+            url = "jdbc:postgresql://localhost:5432/db"
             pooled = true
-            properties {
-               maxActive = -1
-               minEvictableIdleTimeMillis=1800000
-               timeBetweenEvictionRunsMillis=1800000
-               numTestsPerEvictionRun=3
-               testOnBorrow=true
-               testWhileIdle=true
-               testOnReturn=true
-               validationQuery="SELECT 1"
-            }
+            driverClassName = "org.postgresql.Driver"
+            username = "postgres"
+            password = "postgres"
         }
     }
+}
+
+
+dataSource {
+
 }

@@ -14,10 +14,21 @@ Vagrant::Config.run do |config|
     chef.add_recipe "apt"
     chef.add_recipe "java"
     chef.add_recipe "tomcat7"
+    chef.add_recipe "postgresql"
+    chef.add_recipe "postgresql::server"
+    chef.add_recipe "postgresql::client"
+    
     #chef.add_role "web"
     chef.json = { :tomcat7 => {
-                      :log_dir => '/vagrant_data' ,
-                      :webapps => '/vagrant_data/webapps' } }
+                    :log_dir => '/vagrant_data' ,
+                    :webapps => '/vagrant_data/webapps' 
+                  },
+                  :postgresql => {
+                    :password => { :postgres => 'password' }
+                  }
+                }
   end
-  config.vm.provision :shell, :inline => "service tomcat7 start"
+  #config.vm.provision :shell, :inline => "service tomcat7 start
+                                           service postgresql start 
+                                           psql -d postgres -c \'create database sampledb;\'"
 end
